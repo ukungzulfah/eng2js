@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "uhuy";
+    src: url(29CC36_0_0.woff) format("truetype");
+}
+body{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  font-family: "uhuy", Helvetica,Arial,sans-serif;
+}
+.wrap{
+    width: 700px;
+    margin: auto;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+.code{
+  margin: 0px;
+  width: 440px;
+  padding: 10px;
+  resize: none;
+  color: #666;
+  background-color: #ECECEC;
+  border: 1px solid #D8CDCD;
+  padding-top: 20px;
+}

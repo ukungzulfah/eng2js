@@ -1,0 +1,38 @@
+<h1>Data Binding</h1>
+<p>
+    Didalam penulisan data model binding ada 2 macam yaitu anda bisa langsung menggunakan TAG html atau
+    didalam controller. berikut contoh jika anda melakukanya didalam tag html
+</p>
+<br>
+
+<textarea class="code" disabled>
+<div init="nama='jhon'"></div>
+</textarea>
+
+<p>
+    init pada <b>init="nama='jhon'"</b> akan di olah oleh controller sebagai $root.nama = 'jhon';
+    masukan data init bisa berupa String Numbers Array Boolean atau Object
+</p>
+
+<textarea class="code" disabled>
+<input type="text" model="nama"> ^nama
+</textarea>
+<p>
+    Model nama didalam input akan langsung diolah dan di implementasikan ke tags yang berkaitan
+    <br>contoh : 
+</p>
+<p>
+    Ketikan nama: <br>
+    <input type="text" model="nama"> ^nama
+</p>
+
+<br>
+<p>
+    Penulisan data model yang kedua langsung dari controllernya misalnya
+    <br>
+</p>
+<textarea class="code" disabled style="height:65px;">
+eng.controller('main', function($root){
+    $root.namaSaya = 'ukung';
+});
+</textarea>

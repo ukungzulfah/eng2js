@@ -1,0 +1,31 @@
+<h1>Controller</h1>
+<p>
+    Sebuah fungsi yang mengatur data html dengan tag "controller", ketika anda menuliskan tag html dengan 
+    attribute controller maka secara otomatis kompiler akan menerjemahkan hal apa saja yang ada di ruang 
+    lingkup data html controller tersebut.
+</p>
+<p>
+    Didalam satu dokument anda bisa membuat banyak controller sesuai dengan kebutuhan anda, dan setiap controller 
+    bisa saling berkomunikasi dengan menggunakan banyak cara, bisa dengan config, service, module atau factory 
+    atau ada juga beberapa model object yang bisa di include didalamnya dengan tehnik yang anda akan buat nantinya.
+</p>
+<p>
+    Berikut adlah contoh controller yang penulisanya langsung didalam tag html
+</p>
+<textarea class="code" disabled>
+    <div controller></div>
+</textarea>
+
+<p>
+    contoh controller yang di controll dengan javascript
+</p>
+<textarea class="code" disabled style="height: 120px;">
+    <div controller='sample123'></div>
+    <script>
+        eng.controller('sample123', function($root){
+            
+        })
+    </script>
+</textarea>
+
+
