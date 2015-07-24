@@ -1,0 +1,26 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller="ctrl" init="page='../page/index.html';">
+            <button click="page='../page/index.html';"> Page 1 </button>
+            <button click="page='../page/service.html';"> Page 2 </button>
+            <button click="page='../page/model.html';"> Page 3 </button>
+            <button click="page='../page/konsep.html';"> Page 4 </button>
+            <button click="page='../page/tentang.html';"> Page 5 </button>
+            <br>
+            <view model="page"></view>
+        </div>
+        
+        
+    </body>
+</html>

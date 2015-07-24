@@ -1,0 +1,66 @@
+<h1>Template</h1>
+
+<p>
+    Di dalam Eng2Js v 0.0.1 template view diambil dari external code dengan metode Ajax
+</p>
+
+<p>Contoh penggunaan view</p>
+<textarea class="code" style="height:100px;" disabled>
+&lt;view model="page" value="page/halaman.html" 
+    success="successLoadView()" 
+    start="startLoadView()" 
+    error="errorLoadView()"&gt;
+&lt;/view&gt;
+</textarea>
+
+<br>
+<br>
+<p>
+    Ada method success, start dan error jika view selesai mengambil kontentnya.
+</p>
+<pre class="prettyprint linenums">
+eng.controller('sample123', function($root){
+    $root.successLoadView = function(){
+        alert( "Oke..." );
+    };
+    $root.startLoadView = function(){
+        alert( "Start..." );
+    };
+    $root.errorLoadView = function(){
+        alert( "Error..." );
+    };
+});
+</pre>
+
+<br>
+Beberapa events yang ada di view
+<ul>
+    <li>success</li>
+    <li>start</li>
+    <li>error</li>
+</ul>
+
+<p>
+    Settingan cache content di bisa di setting di tag-nya dengan settingan sebagai berikut
+</p>
+<textarea class="code" style="height:75px;" disabled>
+&lt;view model="page" value="page/halaman.html" 
+    cache="true"&gt;
+&lt;/view&gt;
+</textarea>
+<br>
+<p>
+    Sedangkan settingan cache local agar ajax tidak direload kembali adalah dengan memberikan 
+    tag local-cache="true",
+</p>
+<textarea class="code" style="height:75px;" disabled>
+&lt;view model="page" value="page/halaman.html" 
+    local-cache="true"&gt;
+&lt;/view&gt;
+</textarea>
+
+
+<br>
+<p>
+    Untuk melihat contoh view bisa melihat source dokumentasi ini.
+</p>

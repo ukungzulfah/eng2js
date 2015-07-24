@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller="ctrl">
+            <input type="checkbox" model="sorts"> ^sorts
+            <ul each="item in listname | sort=sorts, sortBy='name'">
+                <li> ^item.name </li>
+            </ul>
+        </div>
+        <script>
+            eng.controller('ctrl', function($root){
+                $root.listname = [
+                        { name:'ukung' },
+                        { name:'zulfah' },
+                        { name:'mamah' },
+                        { name:'asyfa' }
+                    ];
+            });
+        </script>
+        
+        
+    </body>
+</html>

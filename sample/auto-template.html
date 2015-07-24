@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller="ctrl" init="nama='ukung'">
+            
+            <h1>Test Auto Template</h1>
+            <div template='template1'></div>
+            
+            <script type="text/eng-template" name="template1">
+                <div>
+                    <h1>Welcome ^nama</h1>
+                </div>
+            </script>
+            
+        </div>
+        
+    </body>
+</html>

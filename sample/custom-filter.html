@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller="ctrl">
+            
+            ^("ukung"|balik:upper=true)
+            
+        </div>
+        <script>
+            eng.filter('balik', function(text, config){
+                if(config.upper){
+                    return text.split('').reverse().join('').toUpperCase();
+                }else{
+                    return text.split('').reverse().join('');
+                }
+            });
+        </script>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<h1>Config</h1>
+
+<p>
+    Config didalam Eng2Js sangat flexible konsepnya adalah konfigurasi yang telah dibuat bisa saling dikomunikasikan 
+    datanya dengan controller - controller lain.
+    <br><br>Berikut adalah contoh config: <br>
+</p>
+
+<pre class="prettyprint linenums">
+    
+eng.config('$cfg', {
+    appName: 'My AppName',
+    appVersion: 'My App Versions'
+});
+
+eng.controller('ctrl-1', function($root, $cfg){
+    //$cfg bisa langsung diakses
+    $root.appName = $cfg.appName;//'My AppName'
+});
+
+eng.controller('ctrl-2', function($root, $cfg){
+    //$cfg bisa langsung diakses
+    $root.appName = $cfg.appName;//'My AppName'
+});
+    
+</pre>

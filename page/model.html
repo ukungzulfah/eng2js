@@ -1,0 +1,23 @@
+<h1>Model</h1>
+
+<p>
+    Data binding model didalam Eng2Js bisa di set dengan 2 arah:
+</p>
+<ul>
+    <li>Dari Tag "init" HTML</li>
+    <li>Dari dalam $root di controller</li>
+</ul>
+
+<div><b>Contoh : </b></div>
+1. Model yang di set dari HTML : <br>
+<textarea class="code">
+<div init="nama='ukung'"></div>
+</textarea>
+<br>
+<br>
+2. Model yang di set dari $root controller <br>
+<pre class="prettyprint linenums">
+eng.controller('sample123', function($root){
+    $root.nama = 'ukung';
+});
+</pre>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+
+        <!-- single page application -->
+        <div controller="ctrl">
+            
+            <h1>Upload photo</h1>
+            <input type="file" change="$$event|src:model='image'">
+            <br>
+            <br>
+            <img src="^(image.src)" alt="Photo">
+            
+        </div>
+        
+        
+    </body>
+</html>

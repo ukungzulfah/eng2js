@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller="ctrl">
+            
+            <input type="checkbox" model="cek" />
+            <h1 tampil="cek"> Test Directive </h1>
+            
+        </div>
+        <script>
+            eng.tagDirective('tampil', function(value, root, element){
+                console.log( value, root, element );
+                if(value){
+                    $(element).show();
+                }else{
+                    $(element).hide();
+                }
+            });
+        </script>
+        
+        
+    </body>
+</html>

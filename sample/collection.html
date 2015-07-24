@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <div controller="ctrl">
+            <input type="text" model="name">
+            <input type="number" model="age">
+            <button click="addNew()"> Add new </button>
+            
+            <ul each="item in listName">
+                <li>
+                    <span>^item.name ( ^item.age )</span> 
+                    <button click="removeItem(^(item.age))"> delete </button>
+                </li>
+            </ul>
+        </div>
+        
+        <div controller="ctrl2">
+            <button click="cek2()"> cek </button>
+        </div>
+        
+        <script>
+            /*
+                // [ Basic Class Javascript Collections ]
+                
+                var struct = {
+                    name: "string",
+                    age: "number",
+                    update: "object"
+                };
+                var data = new Collection( struct );
+                data.insert([ "ukung", 30, new Date() ]);
+                data.delete({ age:30 });
+                data.set({ age:29 }).by({ name:'ukung' });
+                data.get({ age:29 });
+                data.find({ age:29 });
+                console.log( data.store.length, data.store );
+            */
+            
+            eng.collection('$people', { name:"string", age:"number" });
+            
+            eng.controller('ctrl', function($people){
+                this.listName = $people.store;
+                this.addNew = function(){
+                    $people.insert([ this.name, this.age ]);
+                    this.name = '';
+                    this.age = '';
+                };
+                this.removeItem = function(numAge){
+                    $people.remove({ age:numAge });
+                };
+            });
+            eng.controller('ctrl2', function($people){
+                this.cek2 = function(){
+                    alert( $people.store.length );
+                }
+            });
+        </script>
+        
+        
+    </body>
+</html>

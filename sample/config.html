@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+
+        <!-- single page application -->
+        <div controller="ctrl">
+            Eng Versions : <b>^ver</b>
+        </div>
+        <script>
+            eng.config('$cfg', { versions:eng.versions.number });
+            eng.controller('ctrl', function($cfg){
+                this.ver = $cfg.versions;
+            });
+        </script>
+        
+        
+    </body>
+</html>

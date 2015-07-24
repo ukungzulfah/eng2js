@@ -1,0 +1,44 @@
+<h1>Service</h1>
+
+<p>
+    Service konsepnya hampir sama dengan config, hanya saja service adalah sebuah Funtion sehingga 
+    untuk applikasi yang sifatnya membutuhkan konfigurasi awal metode ini sangat membantu. semua 
+    property yang di miliki service bisa di akses dan dirubah oleh setiap controller.
+    
+    <br><br>Berikut adalah contoh service: <br>
+</p>
+
+<textarea class="code" style="height:135px;" disabled>
+&lt;div controller="ctrl-1"&gt;
+  &lt;button click="pushCounter()"&gt; Get Counters &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div controller="ctrl-2"&gt;
+  &lt;button click="pushCounter()"&gt; Get Counters &lt;/button&gt;
+&lt;/div&gt;
+</textarea>
+
+<pre class="prettyprint linenums">
+    
+eng.service('$srv', function(){
+    var dataCounter = {
+        count: 0,
+        getCounters: function(){
+            return this.count++;
+        }
+    };
+    dataCounter.getCounters();
+    return dataCounter;
+});
+eng.controller('ctrl-1', function($root, $srv){
+    $root.pushCounter = function(){
+        console.log( $srv.getCounters() );
+    };
+});
+eng.controller('ctrl-2', function($root, $srv){
+    $root.pushCounter = function(){
+        console.log( $srv.getCounters() );
+    };
+});
+
+</pre>

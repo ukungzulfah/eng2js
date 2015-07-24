@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller="ctrl">
+            ^("Sample Filter"|upper)
+            <br>
+            <input type="text" model="cari">
+            <ul each="x in listname | filter=cari">
+                <li> ^x.name </li>
+            </ul>
+        </div>
+        <script>
+            eng.controller('ctrl', function($root){
+                $root.listname = [
+                        { name:'ukung' },
+                        { name:'zulfah' },
+                        { name:'mamah' },
+                        { name:'asyfa' }
+                    ];
+            });
+        </script>
+        
+        
+    </body>
+</html>

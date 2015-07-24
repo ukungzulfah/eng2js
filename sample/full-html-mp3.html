@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        <h1>Sample full html mp3 application</h1>
+        <!-- single page application -->
+        <div controller='ctrl' init='inPlay=0;currentTime=0;volume=50;mp3={};duration=0;audios="";listMusic=[{"name":"nidji", "src":"../slalu-menjagamu.mp3"}];'>
+            <input type="file" change="$$event|src:model='audios'"> 
+            <button click="listMusic.push({ name:audios.info.name, src:audios.src });"> Add to list ... </button>
+            <br>
+            <br>
+            <audio src="../slalu-menjagamu.mp3"
+                loadeddata="mp3=$$this; duration=$$this.duration; true" 
+                timeupdate="currentTime=$$this.currentTime"></audio>
+            <div>
+                <button click="mp3.play()"> Play </button> <button click="mp3.pause()"> Stop </button> 
+            </div>
+            Current Time : <br>
+            <input type="range" model="currentTime" 
+                change="mp3.currentTime=currentTime" 
+                value="0" 
+                max="^(duration)"> ^currentTime|toInt - ^duration|toInt
+            <br><br>
+            Volume : <br>
+            <input 
+                type="range" 
+                model="volume" 
+                change="mp3.volume=volume/100" max="100" min="0" step="1"> ^volume
+            <br>
+            <table border="1" width="50%" style="border-spacing:0px; border-color:white;">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody each="item in listMusic">
+                    <tr>
+                        <td> ^$index+1 </td>
+                        <td> ^item.name </td>
+                        <td style="text-align:center;">
+                            <button 
+                                click="mp3.pause(); mp3.src=listMusic[^($index)].src; mp3.play();inPlay='^(item.name)';">Play</button>
+                            <button click="listMusic.splice(^($index), 1)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        
+        
+    </body>
+</html>

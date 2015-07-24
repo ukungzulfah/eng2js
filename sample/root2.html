@@ -1,0 +1,24 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller="ctrl" init="listuser=[];">
+            <input type="text" model="name">
+            <button click="listuser.push(name); name='';">Add</button>
+            <ul each="item in listuser">
+                <li> ^item </li>
+            </ul>
+        </div>
+        
+        
+    </body>
+</html>

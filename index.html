@@ -4,6 +4,7 @@
         <title> Eng2Js Tutorial </title>
         <link rel="stylesheet" href="style.css" type="text/css" media="all" />
         <script src="jquery.min.js"></script>
+        <script src="pretty.js"></script>
         <script src="eng2.js"></script>
         <script src="main.js"></script>
     </head>
@@ -13,7 +14,8 @@
         <!-- single page application -->
         <div class="wrap">
             <div class="menu" controller="menu" style="float:left">
-                <input type="text" model="search" />
+                <h3>Version 0.0.1</h3>
+                <input type="search" model="search" placeholder="Filter ..." />
                 <ul each="menu in menus | filter=search">
                     <li click="gotopage('^(menu.url)')">
                         <a href="#^(menu.url)">^menu.name</a>
@@ -22,8 +24,7 @@
             </div>
             <div class="content">
                 <div controller="page" style="margin-left:200px;">
-                    Page : ^page
-                    <view model="page"></view>
+                    <view model="page" local-cache="true" success="prettyPrint()" error="alert('error page')"></view>
                 </div>
             </div>
         </div>

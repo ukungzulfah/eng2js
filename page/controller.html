@@ -10,22 +10,27 @@
     atau ada juga beberapa model object yang bisa di include didalamnya dengan tehnik yang anda akan buat nantinya.
 </p>
 <p>
+    Lihat contoh di fiddle <a href="http://jsfiddle.net/ukungzulfah/1mht1ck1/1/" target="_blank">disini</a>
+</p>
+<p>
     Berikut adlah contoh controller yang penulisanya langsung didalam tag html
 </p>
+
 <textarea class="code" disabled>
     <div controller></div>
 </textarea>
+    
 
 <p>
     contoh controller yang di controll dengan javascript
 </p>
-<textarea class="code" disabled style="height: 120px;">
-    <div controller='sample123'></div>
-    <script>
-        eng.controller('sample123', function($root){
-            
-        })
-    </script>
-</textarea>
+
+<pre class="prettyprint linenums">
+    
+eng.controller('sample123', function($root){
+    $root.nama = 'Ukung Zulfah';
+});
+
+</pre>
 
 
