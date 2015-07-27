@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        <!-- single page application -->
+        <div controller="ctrl"> 
+            <input type="number" model="a"> +
+            <input type="number" model="b"> = ^a+b
+            <hr>
+            <input type="checkbox" model="cek" init="cek=true" />
+            <button onclick="alert('hehehehe')" _disabled="cek"> Click Me </button>
+            <br>
+            <input type="checkbox" model="cek2" />
+            <input type="checkbox" _checked="cek2" />
+        </div>
+        
+    </body>
+</html>

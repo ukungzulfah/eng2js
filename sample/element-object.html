@@ -11,17 +11,16 @@
         
         <!-- single page application -->
         <div controller="ctrl">
-            
-            <input type="checkbox" model="cek" />
-            <h1 tampil="cek"> Test Directive </h1>
-            
+            With Attribute : <button click='txtButton="Thank you"'> ^txtButton </button>
+            <br>
+            <br>
+            With Controller : <button click='changeMe($$this)'> ^txtButton </button>
         </div>
         <script>
-            eng.tagDirective('tampil', function(value, root, element){
-                if(value && typeof value === 'boolean'){
-                    $(element).show();
-                }else{
-                    $(element).hide();
+            eng.controller('ctrl', function($filter){
+                this.txtButton = 'Change my text';
+                this.changeMe = function(obj){
+                    this.txtButton = "Change my text";
                 }
             });
         </script>

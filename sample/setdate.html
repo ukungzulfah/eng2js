@@ -11,17 +11,15 @@
         
         <!-- single page application -->
         <div controller="ctrl">
-            
-            <input type="checkbox" model="cek" />
-            <h1 tampil="cek"> Test Directive </h1>
-            
+            <input type="text" model="format" keydown="tampil=setDate()">
+            ^tampil
         </div>
         <script>
-            eng.tagDirective('tampil', function(value, root, element){
-                if(value && typeof value === 'boolean'){
-                    $(element).show();
-                }else{
-                    $(element).hide();
+            eng.controller('ctrl', function($filter){
+                this.format = "HH:MM:ss";
+                this.tampil = '';
+                this.setDate = function(){
+                    return $filter.date( new Date(), {format:this.format} );
                 }
             });
         </script>

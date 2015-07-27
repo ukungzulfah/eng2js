@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller="ctrl">
+            Hitung : ^counter
+            <div controller="ctrl2">
+                Hitung : ^counter
+                <div controller="ctrl3">
+                    Hitung : ^counter
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            eng
+                .controller('ctrl', function(){
+                    this.counter = 'pertama';
+                })
+                    .controller('ctrl2', function(){
+                        this.counter = 'Kedua';
+                    })
+                        .controller('ctrl3', function(){
+                            this.counter = 'Ketiga';
+                        })
+        </script>
+        
+        
+    </body>
+</html>

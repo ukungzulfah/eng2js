@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller="ctrl">
+            
+            <div>Event button with controller</div>
+            <input type="text" model="food" value="pizza">
+            <button click="changeFood()"> Change food </button>
+            <button click="changeFood2(food2)"> Change food 2 </button>
+            
+        </div>
+        <script>
+            eng.controller('ctrl', function(){
+                this.food2 = 'martabak';
+                this.changeFood2 = function(f){
+                    this.food = f;
+                }
+                this.changeFood = function(){
+                    this.food = 'pisang';
+                }
+            });
+        </script>
+        
+        
+    </body>
+</html>

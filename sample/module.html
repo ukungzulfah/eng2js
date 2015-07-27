@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.1.js"></script>
+    </head>
+    <body>
+        
+
+        <!-- single page application -->
+        <h1>Simple Module Eng2Js</h1>
+        <div controller="ctrl">
+            <button click="setName()"> Show Full Name #1 </button>
+            <br>
+            Name : ^name
+        </div>
+        
+        <div controller="ctrl2">
+            <button click="setName()"> Show Full Name #2 </button>
+            <br>
+            Name : ^name
+        </div>
+        
+        <script>
+            eng.module('$testModule', function($root){
+                this.getFullName = function(){
+                    return 'ukung' + $root.name;
+                };
+            })
+            
+            .controller('ctrl', function($testModule){
+                this.name = 'zulfah';
+                this.setName = function(){
+                    this.name = $testModule.getFullName();
+                };
+            })
+            
+            .controller('ctrl2', function($testModule){
+                this.name = 'Asyfa';
+                this.setName = function(){
+                    this.name = $testModule.getFullName();
+                };
+            });
+        </script>
+        
+        
+    </body>
+</html>

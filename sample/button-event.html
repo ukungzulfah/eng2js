@@ -12,19 +12,10 @@
         <!-- single page application -->
         <div controller="ctrl">
             
-            <input type="checkbox" model="cek" />
-            <h1 tampil="cek"> Test Directive </h1>
+            <input type="text" model="food" value="pizza">
+            <button click="food='pisang'"> Change food </button>
             
         </div>
-        <script>
-            eng.tagDirective('tampil', function(value, root, element){
-                if(value && typeof value === 'boolean'){
-                    $(element).show();
-                }else{
-                    $(element).hide();
-                }
-            });
-        </script>
         
         
     </body>

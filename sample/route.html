@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller='ctrl'>
+            <ul>
+                <li><a href="#/route1">Route 1</a></li>
+                <li><a href="#/route2">Route 2</a></li>
+                <li><a href="#/route3">Route 3</a></li>
+                <li><a href="#/route4">Route 4</a></li>
+                <li><a href="#/route5">Route 5</a></li>
+            </ul>
+        </div>
+        
+        <div route='route1'></div>
+        
+        <script>
+            eng.route('/route2', function(param){
+                return {
+                    param: param,
+                    controller: 'ctrls',
+                    target: 'route1',
+                    templateUrl: 'test-route2.php'
+                };
+            });
+            eng.route('/*', function(param){
+                return {
+                    param: param,
+                    controller: 'ctrls',
+                    target: 'route1',
+                    templateUrl: 'test-route.php'
+                };
+            });
+            eng.controller('ctrls', function($root){
+                this.name = 'ukung';
+            });
+        </script>
+        
+        
+    </body>
+</html>

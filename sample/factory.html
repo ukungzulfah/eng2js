@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.1.js"></script>
+    </head>
+    <body>
+        
+
+        <!-- single page application -->
+        <h1>Simple Factory Eng2Js</h1>
+        <p>
+            <b>Factory</b> menggabungkan antara:
+        </p> 
+        <ul>
+            <li>Config</li>
+            <li>Collection</li>
+            <li>Service</li>
+            <li>Module</li>
+        </ul>
+        
+        <div controller="ctrl">
+            <button click="setName()"> Combine </button>
+            <br>
+            ^name
+            <ul each="item in testList">
+                <li> ^item.name </li>
+            </ul>
+        </div>
+        
+        <script>
+            eng
+            .config('$cfg', { name:'ukung', count:0 })
+            .collection('$colect', { name:'string' })
+            .service('$srv', function(){
+                return {
+                    combineName: function(name1, name2){
+                        return name1 + name2;
+                    } 
+                }
+            })
+            .module('$mdl', function($root){
+                this.balikNama = function(name){
+                    return name.split('').reverse().join('');
+                };
+            })
+            .factory('$fact', function($root, $cfg, $srv, $mdl, $colect){
+                return {
+                    balik: function(){
+                        var text = $mdl.balikNama( $srv.combineName($cfg.name, $root.name) );
+                        text += $cfg.count++;
+                        $colect.insert([ text ]);
+                    },
+                    store: $colect.store
+                };
+            })
+            .controller('ctrl', function($fact){
+                this.name = 'zulfah';
+                this.testList = [];
+                this.setName = function(){
+                    this.name = $fact.balik();
+                    this.name = 'zulfah';
+                    this.testList = $fact.store;
+                };
+            });
+        </script>
+        
+        
+    </body>
+</html>

@@ -11,7 +11,8 @@
         
         <!-- single page application -->
         <div controller="ctrl">
-            ^("Sample Filter"|upper)
+            ^("Sample Filter"|upper) 
+            ^withController
             <br>
             <input type="text" model="cari">
             <ul each="x in listname | filter=cari">
@@ -19,8 +20,10 @@
             </ul>
         </div>
         <script>
-            eng.controller('ctrl', function($root){
-                $root.listname = [
+            eng.controller('ctrl', function($root, $filter){
+                console.log( $filter );
+                this.withController = $filter.lower( 'FILTER CONTROLLER' );
+                this.listname = [
                         { name:'ukung' },
                         { name:'zulfah' },
                         { name:'mamah' },

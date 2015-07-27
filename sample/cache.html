@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller='ctrl'>
+            
+            <div show="nama">
+                <h1>Halo ^nama</h1>
+            </div>
+            <div hide="nama">
+                <button click="who()"> Siapa anda ?  </button>
+            </div>
+            
+            
+            
+        </div>
+        <script>
+            eng.controller('ctrl', function(){
+                this.nama = eng.getCookie('nama');
+                this.who = function(){
+                    this.nama = prompt("masukan nama");
+                    eng.setCookie('nama', this.nama);
+                }
+            });
+        </script>
+        
+        
+    </body>
+</html>

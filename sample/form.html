@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller="ctrl" init="form={}">
+            Nama : <input type="text" model="form.nama">
+            Email : <input type="text" model="form.email"> <br>
+            Gender : 
+                <input type="radio" name="gender" id="text1Gender" model="form.gender" value="male">
+                <label for="text1Gender"> Male </label>
+                <input type="radio" name="gender" id="text2Gender" model="form.gender" value="female">
+                <label for="text2Gender"> Female </label>
+            <div>
+                <pre>^form|json</pre>
+            </div>
+        </div>
+        <script>
+            eng.controller('ctrl', function($filter){
+                
+            });
+        </script>
+        
+        
+    </body>
+</html>

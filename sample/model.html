@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        <!-- single page application -->
+        <div controller="ctrl" init="data={}"> 
+            <div init='data.form={"nama":"", "email":"ukung@live.com"}'>
+                <input type="text" model="data.form.nama"> ^data.form.nama <br>
+                <input type="text" model="data.form.email"> ^data.form.email <br>
+            </div>
+<pre>
+^data|json
+</pre>
+        </div>
+        
+    </body>
+</html>

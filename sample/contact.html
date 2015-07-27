@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        <!-- single page application -->
+        <div controller="ctrl" init='data=[{ "type":"email", "value":"0218976543" }]'> 
+            <h1>Simple Contact List</h1>
+            <ul each="item in data">
+                <li>
+                    <select model="item.type">
+                        <option value="phone">Phone</option>
+                        <option value="email">Email</option>
+                    </select>
+                    <input type="text" model="item.value">
+                </li>
+            </ul>
+            <a href="#" click='data.push({ "type":"phone", "value":"" })'>Add</a>
+            <div> ^data|json </div>
+        </div>
+        
+    </body>
+</html>
