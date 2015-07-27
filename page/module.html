@@ -1,0 +1,38 @@
+<h1>Module</h1>
+
+<p>
+    Eng2Js sudah support dengan system module, module bisa ditulis didalam dokument 
+    bersama dengan html controller, file javascript terpisah dengan dokument html.
+    <br>
+    <br>
+    Module di Eng2Js merupakan sebuah Class pada Javascript standard function. sehingga
+    setiap module di controller yang di panggil akan secara otomatis di generate oleh 
+    system Eng2Js menjadi object yang baru.
+    <br><br>
+    
+</p>
+<b>Contoh Module : </b>
+<br>
+<pre class="prettyprint linenums">
+    
+eng.module('$testModule', function($root){
+    this.getFullName = function(){
+        return 'ukung' + $root.name;
+    };
+})
+
+.controller('ctrl', function($testModule){
+    this.name = 'zulfah';
+    this.setName = function(){
+        this.name = $testModule.getFullName();
+    };
+})
+
+.controller('ctrl2', function($testModule){
+    this.name = 'Asyfa';
+    this.setName = function(){
+        this.name = $testModule.getFullName();
+    };
+});
+
+</pre>

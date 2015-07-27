@@ -1,0 +1,28 @@
+<h1>Filter</h1>
+
+<p>
+    Filter adalah metode pemerosesan output kembali yang telah di hasilkan oleh system 
+    data output bisa berupa object atau string number dan boolean. 
+    <br>
+    <br>
+    filter juga bisa di kembangkan lagi atau dibuat filter yang mungkin anda butuhkan 
+    yang secara default tidak ada di dalam bawaan framework.
+    <br>
+</p>
+
+<b>Contoh Pembuatan Filter : </b>
+<br>
+<pre class="prettyprint linenums" style="overflow:auto;">
+    
+eng.filter('balik', function(text, config){
+    if(config.upper){
+        return text.split('').reverse().join('').toUpperCase();
+    }else{
+        return text.split('').reverse().join('');
+    }
+});
+
+// ketik di dokument controller
+// &circ;'Hello'|balik
+
+</pre>

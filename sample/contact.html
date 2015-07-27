@@ -11,13 +11,13 @@
         <!-- single page application -->
         <div controller="ctrl" init='data=[{ "type":"email", "value":"0218976543" }]'> 
             <h1>Simple Contact List</h1>
-            <ul each="item in data">
+            <ul each="data">
                 <li>
-                    <select model="item.type">
+                    <select model="data[^($index)].type">
                         <option value="phone">Phone</option>
                         <option value="email">Email</option>
                     </select>
-                    <input type="text" model="item.value">
+                    <input type="text" model="data[^($index)].value">
                 </li>
             </ul>
             <a href="#" click='data.push({ "type":"phone", "value":"" })'>Add</a>

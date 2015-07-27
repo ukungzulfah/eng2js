@@ -4,10 +4,6 @@
         "url": "/"
     },
     {
-        "name": "Tentang Eng2Js",
-        "url": "/tentang"
-    },
-    {
         "name": "Konsep",
         "url": "/konsep"
     },
@@ -66,10 +62,6 @@
     {
         "name": "Each",
         "url": "/each"
-    },
-    {
-        "name": "Data Transport",
-        "url": "/data-transport"
     }
 ]
 

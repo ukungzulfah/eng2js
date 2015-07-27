@@ -1,0 +1,23 @@
+<h1>Tag Directive</h1>
+
+<p>
+    Tag Directive hampir sama dengan directive hanya saja bermain di segment attribute 
+    html. alasan kenapa di pisahkan dan tidak menggunakan "restrict" adalah untuk mempermudah 
+    dan memisahkan kedua fungsi tersebut sehingga tidak membingungkan.
+</p>
+
+<b>Contoh Pembuatan Tag Directive : </b>
+<br>
+<pre class="prettyprint linenums" style="overflow:auto;">
+    
+eng.tagDirective('tampil', function(value, root, element){
+    if(value && typeof value === 'boolean'){
+        $(element).show();
+    }else{
+        $(element).hide();
+    }
+});
+// ketikan di browser
+// &lt;h1 tampil="cek"&gt; Test Directive &lt;/h1&gt;
+
+</pre>

@@ -1,0 +1,27 @@
+<h1>Each</h1>
+<p>
+    Proses perulangan di Eng2Js bisa dilakukan didalam syntax html, dan di berikan dengan prefix "each"
+    
+</p>
+
+<b>Contoh Each : </b>
+<br>
+
+
+<textarea disabled class="code" style="height:65px;">
+&lt;ul each="item in data"&gt;
+    &lt;li> &circ;item &lt;/li&gt;
+&lt;/ul&gt;
+</textarea>
+<pre class="prettyprint linenums" style="overflow:auto;">
+
+eng.controller('ctrl', function(){
+    this.data = [
+        { nama: "budi", alamat:"depok" },
+        { nama: "tono", alamat:"bogor" },
+        { nama: "ridwan", alamat:"jakarta" },
+        { nama: "garong", alamat:"bekasi" }
+    ];
+});
+    
+</pre>
