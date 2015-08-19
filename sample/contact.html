@@ -9,20 +9,30 @@
     <body>
         
         <!-- single page application -->
-        <div controller="ctrl" init='data=[{ "type":"email", "value":"0218976543" }]'> 
+        <div controller='ctrl' init='contactType=["Phone", "Email"]; data=[{ "type":"Email", "value":"0218976543" }];'> 
             <h1>Simple Contact List</h1>
-            <ul each="data">
+            <input type="checkbox" model="cek" />
+            <ul each="item in data">
                 <li>
-                    <select model="data[^($index)].type">
-                        <option value="phone">Phone</option>
-                        <option value="email">Email</option>
+                    <input type="checkbox" model="cek" />
+                    <select model="item.type" each="tp in contactType">
+                        <option>^tp</option>
                     </select>
-                    <input type="text" model="data[^($index)].value">
+                    <input type="text" model="item.value">
                 </li>
             </ul>
-            <a href="#" click='data.push({ "type":"phone", "value":"" })'>Add</a>
+            <a href="#" click='data.push({ "type":"Email", "value":"" })'>Add</a>
             <div> ^data|json </div>
         </div>
+        
+        <script>
+            eng.controller('ctrl', function(){
+                this.checkAll = function(){
+                    
+                };
+                console.log(this)
+            })
+        </script>
         
     </body>
 </html>

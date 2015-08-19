@@ -10,16 +10,22 @@
         
         
         <!-- single page application -->
-        <div controller>
+        <div controller="ctrl">
             
-            <h1> Music Autoplay </h1>
-            <music src='../slalu-menjagamu.mp3'></music>
+            <input type="checkbox" model="nama"> ^nama
+            <hr>
+            Model logs : ^before || ^after
             
         </div>
         <script>
-            eng.directive('music', function(attribute, element){
-                var audio = eng.ell('audio').attr({ src:attribute.src, autoplay:true });
-                $(element).append(audio);
+            eng.controller('ctrl', function(){
+                this.nama = true;
+                this.before = '';
+                this.after = '';
+                this.watch( 'nama', function(before, after){
+                    this.before = before;
+                    this.after = after;
+                });
             });
         </script>
         

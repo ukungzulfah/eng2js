@@ -11,14 +11,16 @@
         
         
         <!-- single page application -->
-        <div controller="ctrl" init="page='../page/index.html';">
+        <div controller init="page='../page/index.html';">
+            <checkbox model="enablepage" label="Enable page ^enablepage"></checkbox>
+            <hr>
             <button click="page='../page/index.html';"> Page 1 </button>
             <button click="page='../page/service.html';"> Page 2 </button>
             <button click="page='../page/model.html';"> Page 3 </button>
             <button click="page='../page/konsep.html';"> Page 4 </button>
             <button click="page='../page/tentang.html';"> Page 5 </button>
             <br>
-            <view model="page"></view>
+            <div view="enablepage" model="page"></div>
         </div>
         
         

@@ -10,19 +10,19 @@
         
         
         <!-- single page application -->
-        <div controller="ctrl">
+        <div controller>
             
             ^("ukung"|balik:upper=true)
             
         </div>
         <script>
-            eng.filter('balik', function(text, config){
+            eng.filter('balik', function(value, config){
                 if(config.upper){
-                    return text.split('').reverse().join('').toUpperCase();
+                    return value.split('').reverse().join('').toUpperCase();
                 }else{
-                    return text.split('').reverse().join('');
+                    return value.split('').reverse().join('');
                 }
-            });
+            })
         </script>
         
         

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        <h1> Eng2Js Ultimate Method each </h1>
+        <div controller='ctrl'>
+            <input type="text" model="test"> ^test
+            <hr>
+            sort : ^sorts , sortBy: ^sb
+            <input type="text" model='cari' placeholder="Cari ...">
+            <table border="1" width="100%" style="border-spacing:0px; border-color:white;">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" model="cek"></th>
+                        <th>No</th>
+                        <th click="sorts=sorts?false:true;sb='name';"><a href="#">Nama</a></th>
+                        <th click="sorts=sorts?false:true;sb='email'"><a href="#">Email</a></th>
+                        <th click="sorts=sorts?false:true;sb='phone'"><a href="#">Phone</a></th>
+                    </tr>
+                </thead>
+                <tbody each="item in contacts | filter=cari, sort=sorts, sortBy=sb, total=total">
+                    <tr>
+                        <td><input type="checkbox" model="cek"></td>
+                        <td>^$number</td>
+                        <td>^item.name</td>
+                        <td>^item.email</td>
+                        <td>^item.phone</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div show="total">Jumlah data: ^total</div>
+            <div hide="total"> Data tidak ditemukan ... </div>
+            <div class="logsinfo"></div>
+            
+        </div>
+        <script>
+            eng.controller('ctrl', function(){
+                this.cari = '';
+                this.sorts = false;
+                this.cekall = false;
+                this.sb = 'name';
+                this.logs = function(obj, i){
+                    // handle event change here ... [ obj piece ]
+                    $('.logsinfo').html( "Change value index [" + i + "] value [" + $(obj).val() + "]" );
+                };
+                this.contacts = [
+                    { name:'ukung', email:'ukung@live.com', phone:'386798123' },
+                    { name:'zulfah', email:'zulfah@live.com', phone:'786343232' },
+                    { name:'asyfa', email:'asyfa@live.com', phone:'9863433232' },
+                    { name:'mamah', email:'mamah@live.com', phone:'238464232' },
+                    { name:'nene', email:'nene@live.com', phone:'2348729384' },
+                    { name:'kaka', email:'kaka@live.com', phone:'129862833' },
+                    { name:'kiki', email:'kiki@live.com', phone:'364827364' },
+                    { name:'olan', email:'olan@live.com', phone:'8636374675' }
+                ];
+            });
+        </script>
+        
+        
+    </body>
+</html>

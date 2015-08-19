@@ -10,14 +10,23 @@
         
         
         <!-- single page application -->
-        <div controller="ctrl" init="nama='ukung'">
+        <div controller init="nama='ukungzulfah'; tpl='template1'">
             
             <h1>Test Auto Template</h1>
-            <div template='template1'></div>
+            <button click="tpl='template1'"> Template 1 </button>
+            <button click="tpl='template2'"> Template 2 </button>
+            
+            <div template='tpl'></div>
             
             <script type="text/eng-template" name="template1">
                 <div>
                     <h1>Welcome ^nama</h1>
+                </div>
+            </script>
+            
+            <script type="text/eng-template" name="template2">
+                <div>
+                    <h1>Halo ^nama , Saya template 2</h1>
                 </div>
             </script>
             

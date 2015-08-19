@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        <div controller='ctrl'>
+            <ul each="item in data">
+                <li>
+                    <span>^item.nama</span>
+                    <ul each="it in item.alamat">
+                        <li>
+                            <input type="text" model="it.rt">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <textarea disabled rows="8" cols="40">^data|json</textarea>
+        </div>
+        
+        <script>
+            eng.controller('ctrl', function(){
+                this.data = [
+                    {
+                        nama: "ukung",
+                        alamat: [
+                            { rt:"01", rw:"07" },
+                            { rt:"02", rw:"08" }
+                        ]
+                    },
+                    {
+                        nama: "zulfah",
+                        alamat: [
+                            { rt:"01", rw:"07" },
+                            { rt:"02", rw:"08" }
+                        ]
+                    }
+                ];
+            });
+        </script>
+        
+        
+    </body>
+</html>

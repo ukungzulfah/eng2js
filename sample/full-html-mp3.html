@@ -10,7 +10,7 @@
         
         <h1>Sample full html mp3 application</h1>
         <!-- single page application -->
-        <div controller='ctrl' init='inPlay=0;currentTime=0;volume=50;mp3={};duration=0;audios="";listMusic=[{"name":"nidji", "src":"../slalu-menjagamu.mp3"}];'>
+        <div controller init='inPlay=0;currentTime=0;volume=50;mp3={};duration=0;audios="";listMusic=[{"name":"nidji", "src":"../slalu-menjagamu.mp3"}];'>
             <input type="file" change="$$event|src:model='audios'"> 
             <button click="listMusic.push({ name:audios.info.name, src:audios.src });"> Add to list ... </button>
             <br>

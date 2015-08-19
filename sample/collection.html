@@ -37,7 +37,7 @@
                 };
                 var data = new Collection( struct );
                 data.insert([ "ukung", 30, new Date() ]);
-                data.delete({ age:30 });
+                data.remove({ age:30 });
                 data.set({ age:29 }).by({ name:'ukung' });
                 data.get({ age:29 });
                 data.find({ age:29 });

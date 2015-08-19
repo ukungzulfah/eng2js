@@ -10,15 +10,15 @@
         
         
         <!-- single page application -->
-        <div controller="ctrl">
+        <div controller>
             
             <input type="checkbox" model="cek" />
             <h1 tampil="cek"> Test Directive </h1>
             
         </div>
         <script>
-            eng.tagDirective('tampil', function(value, root, element){
-                if(value && typeof value === 'boolean'){
+            eng.tagDirective('tampil', function( element, value, $filter ){
+                if(value){
                     $(element).show();
                 }else{
                     $(element).hide();

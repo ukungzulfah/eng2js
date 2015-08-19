@@ -8,15 +8,17 @@
     </head>
     <body>
         
-        
+
+        <!-- single page application -->
         <div controller="ctrl">
+            
+            ^data|json
             
         </div>
         
         <script>
-            eng.store('$people', [ "nama", "alamat" ]);
-            eng.controller('ctrl', function($root){
-                
+            eng.controller('ctrl', function($req){
+                this.data = $req.$json( '../menu.json', {code:'coding'});
             });
         </script>
         

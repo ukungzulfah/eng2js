@@ -10,9 +10,15 @@
         
         
         <!-- single page application -->
-        <div controller="ctrl">
-            <h1 show="true"> Show Me </h1>
-            <h1 hide="false"> Show Me </h1>
+        <div controller>
+            <div>Example Tag Directive [ show ]</div>
+            <input type="checkbox" model="cek" /> ^cek
+            <h1 show="cek">Hello World</h1>
+            <hr>
+            
+            <div>Example Tag Directive [ hide ]</div>
+            <input type="checkbox" model="cek2" /> ^cek2
+            <h1 hide="cek2">Hello World</h1>
         </div>
         
         

@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+
+        <div controller="ctrl">
+            <input type="text" model="name"> ^name
+            <fieldset>
+                <legend>Data member</legend>
+                <ul each="item in data" watch-id="wi">
+                    <li>
+                        <select each="opt in option" model="item.type">
+                            <option>^opt.name</option>
+                        </select>
+                        <span>^item.name</span>
+                        <hr>
+                    </li>
+                </ul>
+            </fieldset>
+            <br>
+            Add new option : <br>
+            <input type="text" model="newopt"> <button click='newOpt()'>add</button>
+            <br>
+            <br>
+            <div each="opt in option">
+                <div style="margin-bottom:1px;">
+                    <input type="text" model="opt.name">
+                    <button click="rmOpt($index)">delete</button>
+                </div>
+            </div>
+            <hr>
+            <textarea disabled cols="20" rows="10">
+                ^option|json
+            </textarea>
+            <textarea disabled cols="40" rows="10">
+                ^data|json
+            </textarea>
+            
+        </div>
+        
+        <script>
+            eng.controller('ctrl', function(){
+                this.newopt = '';
+                this.newOpt = function(){
+                    option.push({ "name":this.newopt });
+                    this.newopt = '';
+                    eng.$watchProvide( 'ctrl', 'wi' );
+                };
+                this.rmOpt = function(x){
+                    this.option.splice(x,1)
+                    eng.$watchProvide( 'ctrl', 'wi' );
+                };
+                this.option = [
+                    { name:'admin' },
+                    { name:'owner' },
+                    { name:'member' }
+                ];
+                this.data = [
+                    { name: 'ukung', type:"member" },
+                    { name: 'zulfah', type:"admin" },
+                    { name: 'mamah', type:"owner" },
+                    { name: 'asyfa', type:"member" }
+                ];
+            });
+        </script>
+        
+        
+    </body>
+</html>

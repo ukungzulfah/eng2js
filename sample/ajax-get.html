@@ -15,10 +15,10 @@
         </div>
         
         <script>
-            eng.controller('ctrl', function($root){
+            eng.controller('ctrl', function($root, $req){
                 this.nama = 'Ukung';
                 this.name = 'Zulfah';
-                this.$get({
+                $req.$get({
                     url: 'template-url.php',
                     data: {},
                     target: '.test',

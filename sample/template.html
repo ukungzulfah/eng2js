@@ -20,8 +20,6 @@
             
             <button click="showAlert()"> ^button_name </button>
             <div template='template1'></div>
-            <div template='template1'></div>
-            <div template='template1'></div>
             
             <script type="text/eng-template" name="template1">
                 <div>
@@ -34,7 +32,7 @@
             
             eng.controller('ctrl', function(){
                 this.button_name = 'Check Buttons';
-                this.nama = 0;
+                this.nama = 5;
                 this.bothData = function(){
                     var tpl = "<div><h1>Welcome ^nama</h1></div>";
                     $('.cls_tpl').html( tpl );

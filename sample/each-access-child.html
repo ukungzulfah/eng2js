@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller='ctrl'>
+            <input type="text" model="nama"> ^nama <br>
+            <input type="checkbox" model="cekall" id="ca"> <label for="ca">Check all</label>
+            <hr>
+            <div each='item in option' watch-id="wi">
+                <div>
+                    <input type="checkbox" model="cekall">
+                    ^item.check 
+                    <input type="checkbox" model="item.check">
+                    <br>
+                </div>
+            </div>
+            
+            <hr>
+            <textarea rows="8" cols="40" disabled>^option|json</textarea>
+            
+        </div>
+        <script>
+            eng.controller('ctrl', function($root){
+                this.cekall = true;
+                this.option = [
+                    { check:true, name:"ukung" },
+                    { check:true, name:"zulfah" },
+                    { check:true, name:"asyfa" }
+                ];
+                
+            });
+        </script>
+        
+        
+    </body>
+</html>

@@ -11,18 +11,25 @@
         
         <!-- single page application -->
         <div controller="ctrl">
-            <input type="checkbox" model="sorts"> ^sorts
-            <ul each="item in listname | sort=sorts, sortBy='name'">
-                <li> ^item.name </li>
+            <br>
+            <select model="_sortBy" each='lab in label'>
+                <option>^lab</option>
+            </select> ^_sortBy | 
+            <input type="checkbox" model="_sort"> ^_sort
+            <ul each="item in listname | sort=_sort, sortBy=_sortBy">
+                <li> ^item.name  : ^item.alamat </li>
             </ul>
         </div>
         <script>
-            eng.controller('ctrl', function($root){
-                $root.listname = [
-                        { name:'ukung' },
-                        { name:'zulfah' },
-                        { name:'mamah' },
-                        { name:'asyfa' }
+            eng.controller('ctrl', function(){
+                this.label = [ 'name', 'alamat' ];
+                this._sortBy = 'alamat';
+                this._sort = true;
+                this.listname = [
+                        { name:'ukung', alamat:"depok" },
+                        { name:'zulfah', alamat:"bekasi" },
+                        { name:'mamah', alamat:"bogor" },
+                        { name:'asyfa', alamat:"jakarta" }
                     ];
             });
         </script>

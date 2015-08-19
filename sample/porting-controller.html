@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+        
+        <!-- single page application -->
+        <div controller='ctrl'>
+            
+            <h2> You have ^option|length checked </h2>
+            <div each='item in option' watch-id="wi">
+                <div>
+                    ^$index <input type="text" model="item"><br>
+                </div>
+            </div>
+            <br><br>
+            
+            <div>Unconditional example using timeout for change data</div>
+            <button click="update()" show="d"> manualy update </button>
+            
+        </div>
+        <script>
+            eng.controller('ctrl', function($root){
+                this.d = true;
+                this.option = [ "ukung", "zulfah", "asyfa" ];
+                
+                this.update = function(){
+                    $root.option[2] = 'Asyfa Shaqilla Ufairah';
+                    $root.option.push("mamah")
+                    eng.$watchProvide( 'ctrl', 'wi' );
+                };
+            });
+        </script>
+        
+        
+    </body>
+</html>

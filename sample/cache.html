@@ -24,7 +24,7 @@
         </div>
         <script>
             eng.controller('ctrl', function(){
-                this.nama = eng.getCookie('nama');
+                this.nama = eng.getCookie('nama') || false;
                 this.who = function(){
                     this.nama = prompt("masukan nama");
                     eng.setCookie('nama', this.nama);

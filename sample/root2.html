@@ -11,7 +11,7 @@
         
         
         <!-- single page application -->
-        <div controller="ctrl" init="listuser=[];">
+        <div controller init="listuser=[];">
             <input type="text" model="name">
             <button click="listuser.push(name); name='';">Add</button>
             <ul each="item in listuser">

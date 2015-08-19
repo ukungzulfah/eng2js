@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+
+        <!-- single page application -->
+        <h1>Simple Module Eng2Js</h1>
+        
+        <div><b>Controller 1</b></div>
+        <div controller="ctrl">
+            ^name
+            <br>
+            <button click="setName()"> Change Name </button>
+        </div>
+        <hr>
+        
+        <div><b>Controller 2</b></div>
+        <div controller="ctrl2">
+            ^name
+            <br>
+            <button click="setName()"> Change Name </button>
+        </div>
+        <hr>
+        <p>
+            Modul mampu mengenali sedang bekerja untuk $root yang sedang digunakan.
+            contoh diatas mengeksekusi function tanpa arguments. hal ini berlaku juga untuk
+            service dan factory.
+        </p>
+        
+        <script>
+            eng.module('$testModule', function($root){
+                this.upper = function(){
+                    return $root.name.toUpperCase();
+                }
+            })
+            .controller('ctrl', function( $testModule ){
+                this.name = 'ukung';
+                this.setName = function(){
+                    this.name = $testModule.upper();
+                };
+            })
+            .controller('ctrl2', function( $testModule ){
+                this.name = 'zulfah';
+                this.setName = function(){
+                    this.name = $testModule.upper();
+                };
+            });
+        </script>
+        
+        
+    </body>
+</html>

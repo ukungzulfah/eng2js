@@ -10,7 +10,7 @@
         
         
         <!-- single page application -->
-        <div controller='ctrl'>
+        <div controller>
             <ul>
                 <li><a href="#/route1">Route 1</a></li>
                 <li><a href="#/route2">Route 2</a></li>
@@ -23,23 +23,28 @@
         <div route='route1'></div>
         
         <script>
-            eng.route('/route2', function(param){
+            eng
+            .config('$config', { nama:'ukungzulfah2' })
+            .route('/route2', function(param){
                 return {
-                    param: param,
-                    controller: 'ctrls',
+                    data: {param:param},
                     target: 'route1',
-                    templateUrl: 'test-route2.php'
+                    templateUrl: 'test-route2.php',
+                    controller: function($config){
+                        this.name = $config.nama;
+                        this.route = {param:param};
+                    }
                 };
-            });
-            eng.route('/*', function(param){
+            })
+            .route('/*', function(param){
                 return {
-                    param: param,
+                    data: {param:param},
                     controller: 'ctrls',
                     target: 'route1',
                     templateUrl: 'test-route.php'
                 };
-            });
-            eng.controller('ctrls', function($root){
+            })
+            .controller('ctrls', function($root){
                 this.name = 'ukung';
             });
         </script>

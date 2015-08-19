@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+
+        <!-- single page application -->
+        <div controller="ctrl">
+            <h1>Menu</h1>
+            <input type="text" model="cari">
+            <ul each="item in menu | filter=cari, total=co">
+                <li>^item.name</li>
+            </ul>
+            <div hide="co">Menu <b>^cari</b> tidak ditemukan ...</div>
+        </div>
+        
+        <script>
+            eng
+            .config('$configs', {
+                url_menu: '../menu.json'
+            })
+            .factory('$http', function( $req, $configs ){
+                return {
+                    menu: $req.$json( $configs.url_menu )
+                };
+            })
+            .controller('ctrl', function($http){
+                this.menu = $http.menu;
+            });
+        </script>
+        
+        
+    </body>
+</html>

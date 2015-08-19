@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+    <head>
+        <title> Eng2Js Tutorial </title>
+        <link rel="stylesheet" href="../style.css" type="text/css" media="all" />
+        <script src="../jquery.min.js"></script>
+        <script src="../eng2.js"></script>
+    </head>
+    <body>
+        
+
+        <!-- single page application -->
+        <h1>Todo App</h1>
+        <div controller="ctrl">
+            
+            <div show="fnew">
+                <b>Add new</b> <hr>
+                <div>
+                    <label for="a">Name</label><br>
+                    <input type="text" model="form.name" id="a">
+                </div>
+                <br>
+                <div>
+                    <label for="b">Description</label><br>
+                    <textarea name="b" id="b" model="form.desc" rows="8" cols="40"></textarea>
+                </div>
+                <br>
+                <div>
+                    <button click="fnew=false"> Cancel </button>
+                    <button click="^(action)"> ^action=='savetodo()'?'Save':'Update' </button>
+                </div>
+            </div>
+            
+            <div hide="fnew">
+                <button click="fnew=true">Add new</button>
+                <hr>
+                <b>Todo List</b> <br>
+                <ul each="item in data" watch-id="watchData">
+                    <li>
+                        ^item.name <br>
+                        <div style="font-size:12px;">^item.desc|maxlength</div>
+                        <div>
+                            <a href="#" click="edittodo(item)">edit</a> |
+                            <a href="#" click="rmtodo(item.__id)">delete</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <script>
+            eng
+            .filter('maxlength', function(value, config){
+                return value.length>10?value.substr(0, 5)+'...':value;
+            })
+            .collection('$todoStore', {name:'string', desc:'string'})
+            .controller('ctrl', function( $todoStore ){
+                this.action = 'savetodo()';
+                this.fnew = false;
+                this.form = { name:'', desc:'' };
+                this.data = $todoStore.store;
+                this.reset = function(){
+                    this.action = 'savetodo()';
+                    this.fnew = false;
+                    this.form = { name:'', desc:'' };
+                    this.data = $todoStore.store;
+                    this.apply();
+                };
+                this.rmtodo = function(i){
+                    $todoStore.remove(i);
+                    this.reset();
+                };
+                this.edittodo = function(i){
+                    this.action = 'updatetodo('+ i.__id +')';
+                    this.fnew = true;
+                    this.form = { name:i.name, desc:i.desc };
+                    this.apply();
+                };
+                this.updatetodo = function(i){
+                    $todoStore.set({ name:this.form.name, desc:this.form.desc }).by({ __id:i });
+                    eng.$watchProvide( 'ctrl', 'watchData' ); //update each by watch method
+                    this.reset();
+                };
+                this.savetodo = function(){
+                    $todoStore.insert([ this.form.name, this.form.desc ]);
+                    this.reset();
+                };
+            });
+        </script>
+        
+        
+    </body>
+</html>
