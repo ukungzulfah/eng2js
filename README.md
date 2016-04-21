@@ -5,4 +5,4 @@
              ____/ 
 
 # Eng2js
-Javascript Engine Magic Quote
+Javascript Engine Magic Quote Beta 1
